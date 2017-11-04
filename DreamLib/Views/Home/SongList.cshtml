@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DreamLib.Models.Song> 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Library";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SongList</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="text-center">Song List</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Artist</th>
+                            <th>Song Name</th>
+                            <th>Details</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>                    
+                    @foreach (var s in Model)
+                     {
+                        <tbody>
+                            <tr>
+                                <td><p>@s.Artist.Name</p></td>
+                                <td><p>@s.Name</p></td>
+                                <td>@Html.ActionLink("Details", "SongDetail", new { id = s.Id })</td>
+                                <td>@Html.ActionLink("Edit","EditSong", new { id = s.Id })</td>
+                                <td>@Html.ActionLink("Delete", "DeleteSong", new { id = s.Id })</td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-center">Another Actions</h2>
+                <p class="lead">.............................................</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

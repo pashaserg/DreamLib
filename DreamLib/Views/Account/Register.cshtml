@@ -1,0 +1,52 @@
+﻿@model DreamLib.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Register</h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false)
+            <div>
+                Mail: 
+                <div>
+                    @Html.EditorFor(model => model.Email)
+                </div>
+            </div>
+
+            <div>
+                Year: 
+                <div>
+                    @Html.EditorFor(model => model.Year)
+                </div>
+            </div>
+
+            <div>
+                Password: 
+                <div>
+                    @Html.EditorFor(model => model.Password)
+                </div>
+            </div>
+
+                <div>
+                    Confirm Password: 
+                    <div>
+                        @Html.EditorFor(model => model.PasswordConfirm)
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <input type="submit" value="Register" />
+                    </div>
+                </div>
+        }
+    </div>
+</div>
+

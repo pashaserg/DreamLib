@@ -1,0 +1,47 @@
+﻿@model DreamLib.Models.Song
+
+@{
+    ViewBag.Title = Model.Artist.Name + " - " + Model.Name + " Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details of </h2>
+
+<div>
+    <h2>@Model.Artist.Name - @Model.Name</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist) @Html.DisplayNameFor(model => model.Artist.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Src)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Src)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cover)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cover)
+        </dd>
+
+    </dl>
+</div>
