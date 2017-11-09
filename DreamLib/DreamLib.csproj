@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,13 +202,24 @@
     <Compile Include="Migrations\201711041837276_Artists2.Designer.cs">
       <DependentUpon>201711041837276_Artists2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711092036076_Roles.cs" />
+    <Compile Include="Migrations\201711092036076_Roles.Designer.cs">
+      <DependentUpon>201711092036076_Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711092242062_Roles2.cs" />
+    <Compile Include="Migrations\201711092242062_Roles2.Designer.cs">
+      <DependentUpon>201711092242062_Roles2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AppDbInitializer.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EditModel.cs" />
+    <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Models\EditSongModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NewSongModel.cs" />
@@ -262,6 +274,9 @@
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Home\AddSong.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711041837276_Artists2.resx">
       <DependentUpon>201711041837276_Artists2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711092036076_Roles.resx">
+      <DependentUpon>201711092036076_Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711092242062_Roles2.resx">
+      <DependentUpon>201711092242062_Roles2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

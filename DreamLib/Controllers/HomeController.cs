@@ -23,7 +23,7 @@ namespace DreamLib.Controllers
         [HttpGet]
         public async Task<ActionResult> SongList()
         {
-            IEnumerable<Song> songs = await db.Songs.ToListAsync();
+            IEnumerable<Song> songs = await db.Songs.AsNoTracking().ToListAsync();
             return View(songs);
         }
 

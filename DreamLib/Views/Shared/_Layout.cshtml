@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
@@ -16,28 +16,48 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("DreamLib", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse navbar-left">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Library", "SongList", "Home")</li>
-                    <li>@Html.ActionLink("Add Song", "AddSong", "Home")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Log In", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
-                    <li>@Html.ActionLink("Delete Account", "Delete", "Account")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Library", "SongList", "Home")</li>
+                        <li>@Html.ActionLink("Add Song", "AddSong", "Home")</li>
+                        <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+                    }
                 </ul>
             </div>
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Delete Account", "Delete", "Account")</li>
+                                <li><a href="#"></a></li>
+                                <li><a href="#"></a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"></a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                        <li>@Html.ActionLink("Log In", "Login", "Account")</li>
+                    }
+                </ul>
+            </div>
+
         </div>
     </div>
     <div class="container body-content">
-        
+
         @RenderBody()
         <hr />
         <footer>

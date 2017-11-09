@@ -30,8 +30,8 @@
                      {
                         <tbody>
                             <tr>
-                                <td><p>@s.Artist.Name</p></td>
-                                <td><p>@s.Name</p></td>
+                                <td><p class="text-capitalize">@s.Artist.Name</p></td>
+                                <td><p class="text-capitalize">@s.Name</p></td>
                                 <td>@Html.ActionLink("Details", "SongDetail", new { id = s.Id })</td>
                                 <td>@Html.ActionLink("Edit","EditSong", new { id = s.Id })</td>
                                 <td>@Html.ActionLink("Delete", "DeleteSong", new { id = s.Id })</td>

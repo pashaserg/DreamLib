@@ -6,6 +6,7 @@ using DreamLib.Models;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
 using DreamLib.Repositories;
+using System.Data.Entity;
 
 [assembly: OwinStartup(typeof(DreamLib.App_Start.Startup))]
 
@@ -15,8 +16,9 @@ namespace DreamLib.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
-            // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
-            app.CreatePerOwinContext<ApplicationContext>(ApplicationContext.Create);
+            //Database.SetInitializer<ApplicationContext>(new AppDbInitializer());
+
+            app.CreatePerOwinContext(ApplicationContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions

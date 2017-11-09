@@ -1,0 +1,24 @@
+﻿@model DreamLib.Models.CreateRoleModel
+@{
+    ViewBag.Title = "Create Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h2>Role Creating</h2>
+    <hr />
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                @Html.ValidationSummary(true, "")
+                <p>Role Name:  @Html.EditorFor(model => model.Name)</p>
+                <p>Role Description: @Html.EditorFor(model => model.Description)</p>
+                <p><input type="submit" value="Add Role"/></p>
+            </div>
+        }
+    </div>
+</div>
+
