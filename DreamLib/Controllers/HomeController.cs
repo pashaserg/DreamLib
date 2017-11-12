@@ -24,6 +24,8 @@ namespace DreamLib.Controllers
         public async Task<ActionResult> SongList()
         {
             IEnumerable<Song> songs = await db.Songs.AsNoTracking().ToListAsync();
+            ViewBag.SongsCnt = songs.Count();
+            ViewBag.ArtitsCnt = db.Artists.Distinct().ToArray().Count();
             return View(songs);
         }
 

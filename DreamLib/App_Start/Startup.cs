@@ -16,7 +16,7 @@ namespace DreamLib.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
-            //Database.SetInitializer<ApplicationContext>(new AppDbInitializer());
+            Database.SetInitializer(new AppDbInitializer());
 
             app.CreatePerOwinContext(ApplicationContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);

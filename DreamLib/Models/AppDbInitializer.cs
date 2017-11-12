@@ -9,7 +9,7 @@ using System.Web;
 
 namespace DreamLib.Models
 {
-    public class AppDbInitializer : DropCreateDatabaseAlways<ApplicationContext>
+    public class AppDbInitializer : CreateDatabaseIfNotExists<ApplicationContext>
     {
         protected override void Seed(ApplicationContext context)
         {
@@ -27,7 +27,7 @@ namespace DreamLib.Models
 
             // создаем пользователей
             var admin = new ApplicationUser { Email = "admin@mail.com", UserName = "admin@mail.com" };
-            string password = "secret1243$";
+            string password = "Secret1243$";
             var result = userManager.Create(admin, password);
 
             // если создание пользователя прошло успешно

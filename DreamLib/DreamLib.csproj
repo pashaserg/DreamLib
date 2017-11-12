@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201711092242062_Roles2.Designer.cs">
       <DependentUpon>201711092242062_Roles2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711101329443_admin.cs" />
+    <Compile Include="Migrations\201711101329443_admin.Designer.cs">
+      <DependentUpon>201711101329443_admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbInitializer.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
@@ -315,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711092242062_Roles2.resx">
       <DependentUpon>201711092242062_Roles2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101329443_admin.resx">
+      <DependentUpon>201711101329443_admin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -39,7 +39,6 @@ namespace DreamLib.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    // если создание прошло успешно, то добавляем роль пользователя
                     await UserManager.AddToRoleAsync(user.Id, "user");
 
                     return RedirectToAction("Index", "Home");
@@ -50,7 +49,6 @@ namespace DreamLib.Controllers
             return View(model);
         }
         
-        /**************************************************************************/
 
         private IAuthenticationManager AuthenticationManager
         {
@@ -75,7 +73,7 @@ namespace DreamLib.Controllers
                 ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "Неверный логин или пароль.");
+                    ModelState.AddModelError("", "Login or password is not valid");
                 }
                 else
                 {
@@ -102,9 +100,7 @@ namespace DreamLib.Controllers
             return RedirectToAction("Login");
         }
 
-
-        /**************************************************************************/
-
+        
         [HttpGet]
         public ActionResult Delete()
         {

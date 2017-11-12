@@ -10,8 +10,7 @@ using System.Web.Mvc;
 
 namespace DreamLib.Controllers
 {
-    [Authorize(Roles ="admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         private ApplicationRoleManager RoleManager
@@ -21,7 +20,7 @@ namespace DreamLib.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<ApplicationRoleManager>();
             }
         }
-
+        
         public ActionResult Index()
         {
             return View(RoleManager.Roles);
@@ -31,6 +30,7 @@ namespace DreamLib.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<ActionResult> Create(CreateRoleModel model)
         {
@@ -47,12 +47,12 @@ namespace DreamLib.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Что-то пошло не так");
+                    ModelState.AddModelError("", "Somethink went wrong...");
                 }
             }
             return View(model);
         }
-
+        
         public async Task<ActionResult> Edit(string id)
         {
             ApplicationRole role = await RoleManager.FindByIdAsync(id);
@@ -62,6 +62,7 @@ namespace DreamLib.Controllers
             }
             return RedirectToAction("Index");
         }
+        
         [HttpPost]
         public async Task<ActionResult> Edit(EditRoleModel model)
         {
@@ -79,13 +80,13 @@ namespace DreamLib.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Что-то пошло не так");
+                        ModelState.AddModelError("", "Somethink went wrong...");
                     }
                 }
             }
             return View(model);
         }
-
+        
         public async Task<ActionResult> Delete(string id)
         {
             ApplicationRole role = await RoleManager.FindByIdAsync(id);
