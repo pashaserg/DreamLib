@@ -19,6 +19,7 @@ namespace DreamLib.Controllers
         {
             return View();
         }
+
         [Authorize]
         [HttpGet]
         public async Task<ActionResult> SongList()
